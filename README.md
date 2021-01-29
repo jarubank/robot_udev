@@ -1,4 +1,4 @@
-# robot_udev
+# robot_udev for Ubuntu 18.04
 
 udev rule creator for robot.
 
