@@ -1,13 +1,13 @@
-# lino_udev
+# robot_udev
 
-udev rule creator for linorobot. 
+udev rule creator for robot. 
 ## Creating udev rule
 1. Run the udev creator:
 ```
-$ rosrun lino_udev lino_udev.py
+$ rosrun robot_udev robot_udev.py
 ```
 
-2. Copy the created udev rule to /etc/udev/rules.d/58-lino.rules:
+2. after setup udev rules check by:
 ```
-$ sudo cp 58-lino.rules /etc/udev/rules.d/58-lino.rules
+$ ls /dev
 ```
