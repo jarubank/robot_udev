@@ -1,6 +1,22 @@
 # robot_udev
 
-udev rule creator for robot. 
+udev rule creator for robot.
+
+## Install Libraries Udev for python
+```
+$ sudo apt install python-gobject
+$ sudo apt install libtool-bin
+$ sudo apt install python-gobject-2-dev
+$ sudo apt install autoconf
+$ sudo apt-get install libgudev-1.0-dev
+$ rm -rf python-gudev
+$ git clone https://github.com/nzjrs/python-gudev.git
+$ cd python-gudev
+$ ./autogen.sh 
+$ make
+$ sudo make install
+```
+
 ## Creating udev rule
 1. Run the udev creator:
 ```
