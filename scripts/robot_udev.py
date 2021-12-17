@@ -22,9 +22,11 @@ def callback(client, action, device, user_data):
         print vendor_name + " detected!"
 
         while True:
-            reply = raw_input("Create uDev name? (Y/N) ")
+            reply = raw_input("Create uDev name? 1:ldf, 2:ldr, 3:mcu1, 4:mcu2, 5:imu: ")
             if reply.upper() == 'Y':
                 sym_link = raw_input("What do you want to name this port? : ")
+                udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                udev_rules += udev_string
                 break
 
             elif reply.upper() == 'N':
@@ -32,29 +34,38 @@ def callback(client, action, device, user_data):
             
             elif reply.upper() == '1':
                  sym_link = "smr_front_lidar"
+                 udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                 udev_rules += udev_string
                  break
             
             elif reply.upper() == '2':
                  sym_link = "smr_rear_lidar"
+                 udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                 udev_rules += udev_string
                  break
             
             elif reply.upper() == '3':
                  sym_link = "smr_mcu1"
+                 udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                 udev_rules += udev_string
                  break
             
             elif reply.upper() == '4':
                  sym_link = "smr_mcu2"
+                 udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                 udev_rules += udev_string
                  break
             
             elif reply.upper() == '5':
                  sym_link = "smr_imu"
+                 udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
+                 udev_rules += udev_string
                  break
 
             else:
                 pass
             
-            udev_string = "KERNEL==\"%s\", SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"%s\", ATTRS{idProduct}==\"%s\", ATTRS{serial}==\"%s\", MODE=\"0666\" SYMLINK+=\"%s\"\r\n" %(kernel, vendor_id, model_id, device_id, sym_link)
-            udev_rules += udev_string
+            
 
         print "Plug in next device. Press CTRL+C to save your udev rules.\r\n"
 
