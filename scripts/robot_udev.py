@@ -52,16 +52,16 @@ if __name__ == "__main__":
             save_rules = raw_input(" Do you wany to save your uDev_rules?(Y/N) : ")
             if save_rules.upper() == 'Y':
                 if len(udev_rules) > 0:
-                    os.system('sudo rm -rf 58-robot.rules') #delete old udev
-                    with io.FileIO("58-robot.rules", "w") as file:
+                    os.system('sudo rm -rf smr_200.rules') #delete old udev
+                    with io.FileIO("smr_200.rules", "w") as file:
                         file.write(udev_rules)
-                    print "\r\n58-robot.rules saved."
+                    print "\r\nsmr_200.rules saved."
 
-                    print "\r\nremoving old 58-robot.rules in /etc/udev/rules.d"
-                    os.system('sudo rm -rf /etc/udev/rules.d/58-robot.rules')
+                    print "\r\nremoving old smr_200.rules in /etc/udev/rules.d"
+                    os.system('sudo rm -rf /etc/udev/rules.d/smr_200.rules')
 
-                    print "\r\nCopying the created udev rule to /etc/udev/rules.d/58-robot.rules"
-                    os.system('sudo cp 58-robot.rules /etc/udev/rules.d')
+                    print "\r\nCopying the created udev rule to /etc/udev/rules.d/smr_200.rules"
+                    os.system('sudo cp smr_200.rules /etc/udev/rules.d')
 
                     print "\r\nRestarting & trigger udevadm"
                     os.system('sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger')
